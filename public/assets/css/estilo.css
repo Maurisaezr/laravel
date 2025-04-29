@@ -1,0 +1,347 @@
+/* ================================================================
+ | Autor   : Constanza Zapata, Julio Cesar Gonzalez, Mauricio Saez |
+ | Fecha   : 07/04/2025                                            |
+ | Versión : 1.5                                                   |
+ | Semana  : Semana 3                                              |
+ ================================================================== */
+
+/* Para pantallas menores a 768px (tablets y móviles) */
+/* USE LIBRO USERS*/
+@media (max-width: 768px) {
+  body {
+    background-color: lightgray;
+    color: blue; /*Cambio el color más que nada para test de tamaños*/
+    font-size: clamp(1rem, -0.1034rem + 5.5172vw, 3rem);
+  }
+  header {
+    background: #000;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    flex-wrap: wrap;
+  }
+
+  
+}
+
+/* Para pantallas menores a 480px (móviles pequeños) */
+@media (max-width: 480px) {
+  body {
+    background-color: black;
+    color: white; /*Cambio el color más que nada para test de tamaños*/
+    font-size: clamp(1rem, -0.1034rem + 5.5172vw, 3rem); /*esto lo copié de un tiktok ZAHID y el cálculo se hace con clamp.font-size.app y genera el código*/
+  }
+
+  h2 {
+    color: #000;
+    font-family: 'Italiana', serif;
+    font-size: clamp(1.5rem, 1vw + 1rem, 3rem); /*Agrego un valor útil a clamp para evitar errores*/
+  }
+  header {
+    background: #000;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    flex-wrap: wrap;
+  }
+
+  
+}
+
+.carousel-caption {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 1rem 2rem;
+}
+
+
+.card {
+  border: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+
+
+/** Botón inicio */
+#btnGeneral {
+  position: fixed;
+  bottom: 40px;
+  left: 40px; /*Cambiado de right a left*/
+  z-index: 1000;
+  display: none;
+  background: linear-gradient(to right, #0099cc, #00c6ff); /*Esto lo copié del botón agregar artículo para darle gradiente*/
+}
+
+/*Aplicar fondo a body*/
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: white;
+  color: #ffffff;
+}
+
+/*body {*/
+ /* background-color: #2d2d2d; /*Unifico este color con el del final para evitar duplicados */
+ /* flex-wrap: wrap;
+}*/
+
+/* HEADER */
+header {
+  background: #000;
+  width: 100%;
+  position: relative;
+  z-index: 100;
+  flex-wrap: wrap;
+}
+
+/*Aca cambio datos para el footer*/
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #c9d2d0;
+  color: #31231e;
+  font-size: 14px;
+}
+
+.titulo p {
+  text-align: left;
+  color: red;
+  justify-content: left;
+}
+
+.titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+#logoelfaro {
+  width: 80px; /* Tamaño del logo */
+  height: auto;
+  border-radius: 10px; /* Bordes redondeados */
+  border: 2px solid black; /* Borde negro */
+  flex-wrap: wrap;
+}
+
+/* Estilo del título */
+h1 {
+  color: #A2C9E4;
+  font-size: 48px; /* Tamaño más realista */
+  font-family: 'Italiana', serif;
+  text-align: center;
+}
+
+/* Estilo del subtítulo */
+#tituloultimas {
+  color: #000;
+  font-size: 50px;
+  font-family: 'Italiana', serif;
+  text-align: center;
+  display: block;
+  width: 100%;
+  font-weight: bold;
+}
+
+/* H2 general */
+h2 {
+  color: #000;
+  font-size: 100px;
+  font-family: 'Italiana', serif;
+  text-align: center;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Menú */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  padding: 10px;
+}
+
+nav ul li a {
+  color: #A2C9E4;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+}
+
+nav ul li:hover {
+  background: #eca023;
+  text-decoration: underline; /*Aca pongo el subrayado cuando paso el mouser*/
+  text-decoration-color: rgb(255, 255, 255); /*Pongo un color para que se note*/
+}
+
+/* SECCIÓN PRINCIPAL */
+section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column; /* Asegura que el h2 quede arriba */
+  align-items: center;
+  background-color: #F5F5F5; /*Aplico fondo gris en section*/
+  width: 100%;
+  padding: 5px;
+  flex-wrap: wrap;
+}
+
+/* Agrando más el video para que cumpla el wireframe */
+#video1:first-child {
+  flex-grow: 2;
+}
+
+audio {
+  transform: scale(1.5); /* Aumenta un 50% el tamaño */
+}
+
+.contenedor-articulos-multimedia {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  flex-wrap: wrap; /*Según el libro ajusta elementos o como se acomodan en un contenedor*/
+  background-color: #000000;
+}
+
+/* Contenedor de artículos */
+.contenedor-articulos {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Estilos para cada artículo */
+article {
+  background-color: white; /*Fondo blanco para artículos*/
+  color: black;
+  padding: 15px;
+  border: 1px solid #ccc;
+  width: 30%;
+  min-width: 250px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /*Agrego un poquito de sombra al costado derecho para más vistoso*/ 
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* Hover en artículo */
+article:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Imágenes */
+article img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Para la sección emprendimientos */ 
+.contenedor-articulos-emprendimiento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Estilo del primer artículo */
+.contenedor-articulos-emprendimiento article:first-child {
+  width: 100%;
+  max-width: 800px;
+  font-size: 1.2em;
+  padding: 20px;
+  background-color: #e6e6e6;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Otros artículos más pequeños */
+.contenedor-articulos-emprendimiento article:nth-child(n+2) {
+  display: flex;
+  width: 48%;
+  min-width: 300px;
+  flex-direction: column;
+  background-color: #f8f8f8;
+}
+
+/* Reloj fecha */
+#timedate {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem; /* Más pequeño */
+  line-height: 1.2;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo sutil para legibilidad */
+  padding: 8px 12px;
+  border-left: 4px solid #ed1f24;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+
+/*CSS  para el carrusel lo marco al ultimo para no perderme*/
+.img-wrapper {
+  height: 250px; /* Agrando el cuadro para que quede mejor la imagen */ 
+  overflow: hidden;
+}
+.img-wrapper img {
+  height: 100%; /*la img toma el 100% de contenedor*/
+  object-fit: cover;
+}
+
+
+
+
+/*noticias circular*/
+.scroller {
+  background: linear-gradient(to right, #1e3c72, #2a5298); /* Gradiente moderno */
+  color: white;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 10px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.scroller-inner {
+  display: flex;
+  animation: scroll-left 20s linear infinite;
+  gap: 2rem;
+  white-space: nowrap;
+}
+
+.scroller-item {
+  flex: 0 0 auto;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Animación del scroll horizontal infinito */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+

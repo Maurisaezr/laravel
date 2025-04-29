@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="EL faro más que noticias">
+    <meta name="description" content="Periódico con las últimas informaciones del mundo">
+    <link href="assets/css/estilo.css" rel="stylesheet" type="text/css"/>
+        <!-- como bootstrap no tiene animaciones agregamos AOS.CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">  <!-- Implementacion de font -->
+    <link href="https://fonts.googleapis.com/css2?family=Italiana:wght@400&display=swap" rel="stylesheet"> <!-- Implementacion de font  -->
+    <!-- Bootstrap CSS (v5.3) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Cargo boostrap para darle mejor visual a los elementos y hacerlo mas dinamico  -->
+
+    <title>Periódico "El Faro"</title>
+</head>
+
+
+<script>
+  fetch('https://api.rss2json.com/v1/api.json?rss_url=https://rss.nytimes.com/services/xml/rss/nyt/World.xml')
+    .then(response => response.json())
+    .then(data => {
+      const contenedor = document.getElementById("feed-externo");
+      data.items.slice(0, 3).forEach(item => {
+        contenedor.innerHTML += `
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">${item.title}</h5>
+              <p class="card-text">${item.description}</p>
+              <a href="${item.link}" class="btn btn-sm btn-outline-primary" target="_blank">Leer más</a>
+            </div>
+          </div>
+        `;
+      });
+    });
+</script>
+ <!-- Con ONLOAD cargo al inicio las funciones del reloj en principio ocuparia una  pero luego encontre una mas linda en universeui -->
+ <body onload="mueveReloj(); initClock(); Noticias_ultimo_minuto()"> 
+
+       
+  <div class="bg-danger text-white text-center p-2">🔔 AVISO: Bienvenidos al nuevo sitio de El Faro</div>
+    <!-- Menú -->
+    <header class="bg-dark text-white py-3">
+     <!-- ACA la alerta container para cuando agregamos el articulo  y la cantidad de articulos -->
+        <div id="alert-container"></div>
+        <div id="timedate"> 
+            <a id="mon">January</a>
+            <a id="d">1</a>,
+            <a id="y">0</a><br />
+            <a id="h">12</a> :
+            <a id="m">00</a>:
+            <a id="s">00</a>:
+      </div>
+
+        <div class="titulo">
+
+<!-- Reloj con Date/Time - se agrega al header para que baje siempre la Hora info aca "https://desarrolloweb.com/articulos/549.php"-->
+
+
+  <!-- Este seria el reloj principal pero ahora lo ocupo para corroborar hora y lo dejo oculto ya uqe no se utiliza la funcion JS que lo realiza es compararHoras -->
+    <form  name="form_reloj" style="display: none;">
+        <input type="text" name="reloj" size="10" style="background-color : rgb(96, 90, 90); color : #A2C9E4; font-family : Verdana, Arial, Helvetica; font-size : 8pt; text-align : center;" onfocus="window.document.form_reloj.reloj.blur()">
+    </form>
+
+          <img id="logoelfaro" src="img/logo.png" alt="Logo de El Faro">
+          <h1>El Faro</h1>
+          
+        </div>
+<!-- Barra de navegacion  la etiqueta "a" usa id para ir a las secciones necsarias -->
+    <!--LA CORREGIMOS PARA USAR BOOTSTRAP-->
+<!-- Barra de navegacion  la etiqueta "a" usa id para ir a las secciones necsarias -->
+    <!--LA CORREGIMOS PARA USAR BOOTSTRAP-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">El Faro</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="economicos.html">Economicos</a></li>
+            <li class="nav-item"><a class="nav-link" href="internacional.html">Internacional</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalContacto">Contáctenos</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+        </header>
+
+<section class="container mt-5">
+  <h2 class="text-center mb-4">🌍 Noticias Internacionales</h2>
+  <div id="feed-externo"></div>
+</section>
+  <!-- Botón flotante va al inicio -->
+
+
+  <!-- Aca el amigo  footer para nuestros datos de contactos eventualmente agregar copyright -->
+   <!--FOOTER CORREGIDO MAS MODERNO USANDO BOOTSTRAP
+   footer: etiqueta semántica para contenido final del sitio.
+   bg-dark: fondo oscuro (color de Bootstrap).
+   text-white: texto en blanco.
+   mt-5: margen superior (margin-top) de 5 unidades Bootstrap.
+   py-5: padding vertical (padding-top y padding-bottom) de 5 unidades.
+   -->
+  <footer class="bg-dark text-white mt-5 py-5"> 
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <i class="bi bi-facebook"></i> Facebook
+<i class="bi bi-instagram"></i> Instagram
+          <h5>Contacto</h5>
+          <p>Email: contacto@elfaro.com</p>
+          <p>Teléfono: +56 9 1234 5678</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Dirección</h5>
+          <p>Santiago, Chile</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Síguenos</h5>
+          <a href="#" class="text-white me-2">Facebook</a>
+          <a href="#" class="text-white me-2">Twitter</a>
+          <a href="#" class="text-white">Instagram</a>
+        </div>
+      </div>
+      <div class="text-center pt-3 border-top border-light mt-3">
+        © 2024 El Faro. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+
+
+<!-- ACA BOTON SUBIR le agregue una funcion JS que copie de stackoverflow para que hacia display cuando se hace el scroll -->
+
+<a href="#general" class="btn btn-success rounded-circle" id="btnGeneral" title="Ir a General">
+    ↑ SUBIR
+  </a>
+
+
+
+
+  
+  <!-- Modal  y crear un formulario para agregar un nuevo articulo-->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Agregar nuevo artículo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body"> <!--aca empezamos a generar el FORM que tenga  adentro del MODAL -->
+          <h3>ARTICULO</h3>
+          <!--en este div agregamos el label y input para titulo-->
+
+          <div class="mb-3">
+            <!--ACA agregamos un select asi escoje en que sección-->   
+            <select  id="categoria-articulo" class="form-select" aria-label="Default select example">
+                <option selected>Seleccione la categoria</option>
+                <option value="general">General</option>
+                <option value="deporte">Deporte</option>
+                <option value="emprendimiento">Emprendimientos y Negocios</option>
+              </select> 
+
+
+            <label for="exampleFormControlInput1" class="form-label">Titulo del Articulo</label>
+            <input type="text" class="form-control" id="titulo-articulo" placeholder="titulo ejemplo">
+          </div>
+             <!--en este div agregamos el label y input para informacion del articulo-->
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Informacion del Articulo</label>
+            <textarea class="form-control" id="descripcion-articulo" rows="3"></textarea>
+          </div>
+
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" onclick="agregarArticulos()">Agregar articulo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<!-- Modal Contacto -->
+<div class="modal fade" id="modalContacto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalContactoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalContactoLabel">Contáctenos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        
+        <div class="modal-body">
+          <form id="form-contacto">
+            <div class="mb-3">
+              <label for="nombre-contacto" class="form-label">Nombre completo</label>
+              <input type="text" class="form-control" id="nombre-contacto" placeholder="Tu nombre">
+            </div>
+            
+            <div class="mb-3">
+              <label for="correo-contacto" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="correo-contacto" placeholder="nombre@ejemplo.com">
+            </div>
+  
+            <div class="mb-3">
+              <label for="asunto-contacto" class="form-label">Asunto</label>
+              <input type="text" class="form-control" id="asunto-contacto" placeholder="Asunto del mensaje">
+            </div>
+            
+            <div class="mb-3">
+              <label for="mensaje-contacto" class="form-label">Mensaje</label>
+              <textarea class="form-control" id="mensaje-contacto" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
+            </div>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="enviarContacto()">Enviar</button>
+        </div>
+  
+
+<!-- Bootstrap Bundle JS con Popper (v5.3) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Al final del body segun documentacion -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+<script>
+  AOS.init();
+</script>
+
+<script src="assets/js/funciones.js"></script>   <!-- aca tengo mis funciones cargo al final, ya que el metodo para contar  los articles al principio da 0 porque no se han creado -->
+</body>
+</html>
