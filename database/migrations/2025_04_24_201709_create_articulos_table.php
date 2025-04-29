@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('fechaPublicacion');
             $table->unsignedBigInteger('autor');
             $table->unsignedBigInteger('categoria');
+            $table->string('ruta_imagen')->nullable();
             $table->timestamps();
     
             $table->foreign('autor')->references('idUsuario')->on('usuarios')->onDelete('cascade');

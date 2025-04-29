@@ -1,0 +1,29 @@
+<?php
+namespace Database\Seeders;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class ArticulosSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('articulos')->insert([
+            ['idArticulo' => 1, 'titulo' => 'Primer Artículo', 'contenido' => 'Este es el contenido del primer artículo.', 'fechaPublicacion' => '2025-04-26', 'autor' => 1, 'categoria' => 1, 'created_at' => '2025-04-26 07:37:21', 'updated_at' => '2025-04-26 07:37:21', 'ruta_imagen' => 'img/generica.jpg'],
+            ['idArticulo' => 2, 'titulo' => 'Segundo Artículo', 'contenido' => 'Este es el contenido del segundo artículo.', 'fechaPublicacion' => '2025-04-26', 'autor' => 1, 'categoria' => 2, 'created_at' => '2025-04-26 07:37:23', 'updated_at' => '2025-04-26 07:37:23', 'ruta_imagen' => 'img/generica.jpg'],
+            ['idArticulo' => 4, 'titulo' => 'saludito', 'contenido' => 'dsadasd', 'fechaPublicacion' => '2025-04-26', 'autor' => 2, 'categoria' => 2, 'created_at' => '2025-04-26 21:05:24', 'updated_at' => '2025-04-26 21:05:24', 'ruta_imagen' => 'img/generica.jpg'],
+            ['idArticulo' => 5, 'titulo' => 'cancer', 'contenido' => 'asdasdsadsad', 'fechaPublicacion' => '2025-04-26', 'autor' => 2, 'categoria' => 2, 'created_at' => '2025-04-27 02:35:13', 'updated_at' => '2025-04-27 02:35:13', 'ruta_imagen' => 'img/generica.jpg'],
+            ['idArticulo' => 6, 'titulo' => 'nueva prueba', 'contenido' => 'prueba', 'fechaPublicacion' => '2025-04-27', 'autor' => 2, 'categoria' => 4, 'created_at' => '2025-04-28 02:43:14', 'updated_at' => '2025-04-28 02:43:14', 'ruta_imagen' => 'img/generica.jpg'],
+            ['idArticulo' => 7, 'titulo' => 'Tribunal Supremo de Brasil abre proceso contra Bolsonaro', 'contenido' => 'El Tribunal Supremo Federal de Brasil abrió un proceso penal contra Jair Bolsonaro y otros implicados por planear un golpe de Estado. La causa será llevada por magistrados con fama de ser rigurosos.', 'fechaPublicacion' => '2025-04-28', 'autor' => 1, 'categoria' => 7, 'created_at' => '2025-04-28 16:49:41', 'updated_at' => '2025-04-28 16:49:41', 'ruta_imagen' => 'img/noticia1.jpg'],
+            ['idArticulo' => 8, 'titulo' => 'Detectan oxígeno en galaxia lejana desde Chile', 'contenido' => 'Gracias a ALMA, astrónomos chilenos descubren oxígeno en una galaxia distante, lo que podría cambiar el entendimiento sobre la velocidad de formación de galaxias tras el Big Bang.', 'fechaPublicacion' => '2025-04-28', 'autor' => 1, 'categoria' => 7, 'created_at' => '2025-04-28 16:49:41', 'updated_at' => '2025-04-28 16:49:41', 'ruta_imagen' => 'img/noticia2.jpg'],
+            ['idArticulo' => 9, 'titulo' => 'Bienestar laboral: claves para evitar el estrés', 'contenido' => 'Más del 50% de los trabajadores chilenos sufre de estrés laboral. Carolina Villas, psicóloga de Mutual de Seguridad, entrega consejos para enfrentar este problema a través de alimentación, sueño y actividad física.', 'fechaPublicacion' => '2025-04-28', 'autor' => 1, 'categoria' => 7, 'created_at' => '2025-04-28 16:49:41', 'updated_at' => '2025-04-28 16:49:41', 'ruta_imagen' => 'img/noticia3.jpg'],
+            ['idArticulo' => 10, 'titulo' => 'Carozzi firma alianza con Ok To Shop', 'contenido' => 'Alianza para entregar mejor información nutricional...', 'fechaPublicacion' => '2025-04-28', 'autor' => 1, 'categoria' => 8, 'created_at' => '2025-04-28 16:51:56', 'updated_at' => '2025-04-28 16:51:56', 'ruta_imagen' => 'img/emprendimiento1.jpg'],
+            ['idArticulo' => 11, 'titulo' => 'Aceite de oliva chileno triunfa en Japón', 'contenido' => 'More Chile conquista el mercado gourmet internacional...', 'fechaPublicacion' => '2025-04-28', 'autor' => 1, 'categoria' => 8, 'created_at' => '2025-04-28 16:51:56', 'updated_at' => '2025-04-28 16:51:56', 'ruta_imagen' => 'img/emprendimiento2.jpg'],
+            ['idArticulo' => 12, 'titulo' => 'Grupo Patio emite bonos en Perú', 'contenido' => 'Exitosa operación por US$50 millones con inversionistas institucionales...', 'fechaPublicacion' => '2025-04-28', 'autor' => 1, 'categoria' => 8, 'created_at' => '2025-04-28 16:51:56', 'updated_at' => '2025-04-28 16:51:56', 'ruta_imagen' => 'img/emprendimiento3.jpg'],
+            ['idArticulo' => 13, 'titulo' => 'Empate de Chile y enojo de Vidal', 'contenido' => 'Lo que no se vio del partido ante Ecuador y la interna de la Roja...', 'fechaPublicacion' => '2025-04-28', 'autor' => 1, 'categoria' => 6, 'created_at' => '2025-04-28 16:52:10', 'updated_at' => '2025-04-28 16:52:10', 'ruta_imagen' => 'img/deporte1.jpg'],
+            ['idArticulo' => 14, 'titulo' => 'Muere George Foreman', 'contenido' => 'La leyenda del boxeo falleció a los 76 años dejando un legado...', 'fechaPublicacion' => '2025-04-28', 'autor' => 1, 'categoria' => 6, 'created_at' => '2025-04-28 16:52:10', 'updated_at' => '2025-04-28 16:52:10', 'ruta_imagen' => 'img/deporte2.jpg'],
+            ['idArticulo' => 15, 'titulo' => 'Jadue reaparece con polémica carta', 'contenido' => 'El ex presidente de la ANFP pide la renuncia de Gareca y Milad...', 'fechaPublicacion' => '2025-04-28', 'autor' => 1, 'categoria' => 6, 'created_at' => '2025-04-28 16:52:10', 'updated_at' => '2025-04-28 16:52:10', 'ruta_imagen' => 'img/deporte3.jpg'],
+            ['idArticulo' => 16, 'titulo' => 'ultimo articulo de prueba', 'contenido' => 'articulo de prueba', 'fechaPublicacion' => '2025-04-28', 'autor' => 2, 'categoria' => 1, 'created_at' => '2025-04-29 01:14:52', 'updated_at' => '2025-04-29 01:14:52', 'ruta_imagen' => 'img/generica.jpg'],
+            ['idArticulo' => 17, 'titulo' => 'Estamos  agregando una nueva noticia', 'contenido' => 'Este es el text para agregar una descripcion', 'fechaPublicacion' => '2025-04-28', 'autor' => 7, 'categoria' => 1, 'created_at' => '2025-04-29 02:58:08', 'updated_at' => '2025-04-29 02:58:08', 'ruta_imagen' => 'img/generica.jpg'],
+        ]);
+    }
+}
