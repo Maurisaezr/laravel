@@ -9,7 +9,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ArticuloController;
 use App\Http\Controllers\SuscripcionController;
 use App\Http\Controllers\ContactoController;
-
+use App\Http\Controllers\ArticuloController2;
 
 Route::get('/', function () {
     $articulosGenerales = Articulo::where('categoria', 7)->get(); // Artículos de la categoría "Generales"
@@ -29,7 +29,7 @@ Route::get('/articulos', [ArticuloController::class, 'index'])->name('articulos.
 Route::post('/articulos', [ArticuloController::class, 'store'])->name('articulos.store');
 
 //Route::get('/', [CategoriaController::class, 'index'])->name('categorias.index');
-
+Route::get('/articulos-preparados', [ArticuloController2::class, 'getArticulos']);
 
 Route::resource('categorias', CategoriaController::class);
 Route::resource('usuarios', UsuarioController::class);
