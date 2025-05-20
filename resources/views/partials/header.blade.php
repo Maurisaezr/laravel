@@ -39,6 +39,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#CantidadArticulos">Generales</a></li>
         <li class="nav-item"><a class="nav-link" href="economicos.html">Economicos</a></li>
         <li class="nav-item"><a class="nav-link" href="internacional.html">Internacional</a></li>
         <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalContacto">Contáctenos</a></li>

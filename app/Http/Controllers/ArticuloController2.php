@@ -18,7 +18,7 @@ class ArticuloController2 extends Controller // Cambiado de ArticuloController a
     public function getArticulos()
     {
         //query preparada adhoc donde indica obtener todos los registros mientras el id sea 1 y muestra todos los campos
-        $sql = "SELECT * FROM articulos WHERE categoria = ?";
+        $sql = "SELECT * FROM articulos WHERE categoria = ?";   //  QUERY BASICA  NO RECOMENDADA SI LA TABLA TIENE MUCHOS REGISTROS
         // aca prepara la query y se aprecia el atributo posicinal pasando el id 1
         $articulos = $this->dbService->queryPrepared($sql, [8]);
 
@@ -28,7 +28,7 @@ class ArticuloController2 extends Controller // Cambiado de ArticuloController a
     // Usando procedimiento almacenado
     public function createArticuloProcedure(Request $request)
     {
-        $this->dbService->callProcedureAdvanced('InsertArticulo', [
+        $this->dbService->callProcedureAdvanced('InsertArticulo', [  //aca se llama al procedimiento almacenado
             $request->titulo,
             $request->contenido,
             $request->fechaPublicacion,

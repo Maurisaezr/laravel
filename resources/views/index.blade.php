@@ -29,13 +29,8 @@
         @endforeach
     </div>
 </section>
-  <hr> <!-- Lo utilizo para la linea de separacion entre temas-->
 
-  <hr> <!-- Lo utilizo para la linea de separacion entre temas-->
-<!-----SIGO USANDO ULTIMAS NOTICIAS EXTERNAS EN ESTE PUNTO-------------------------INICIO CARRUSEL ULTIMAS NOTICIAS---------------------------------------------------------->
-<!--NUEVA SECCION NUESTROS ARTICULOS MIEMBROS -->
-
-
+<h2 class="text-center my-5">🔒 Sección Usuarios Autenticados</h2>
 <!-- Mostrar la sección solo para usuarios logueados -->
 @auth
     @include('partials.seccion_noticias_ultimominuto')
@@ -46,6 +41,15 @@
     </div>
 @endguest
     <hr> <!-- Lo utilizo para la linea de separacion entre temas-->
+
+
+  <hr> <!-- Lo utilizo para la linea de separacion entre temas-->
+@include('partials.seccion_noticias_generales', ['articulosGenerales' => $articulosGenerales])
+  <hr> <!-- Lo utilizo para la linea de separacion entre temas-->
+<!-----SIGO USANDO ULTIMAS NOTICIAS EXTERNAS EN ESTE PUNTO-------------------------INICIO CARRUSEL ULTIMAS NOTICIAS---------------------------------------------------------->
+<!--NUEVA SECCION NUESTROS ARTICULOS MIEMBROS -->
+
+
 
 
 
@@ -101,13 +105,38 @@
 
 <!-- Aquí cargas los parciales  de secciones antiguas separados-->
 
-@include('partials.seccion_noticias_generales', ['articulosGenerales' => $articulosGenerales])
+
 @include('partials.seccion_noticias_emprendimiento', ['articulosEmprendimiento' => $articulosEmprendimiento])
 @include('partials.seccion_noticias_deportes', ['articulosDeportes' => $articulosDeportes])
 
 <!--NUEVA SECCION NUESTROS ARTICULOS MIEMBROS -->
 @include('partials.seccion_nuestros_miembros', ['articulosMiembros' => $articulosMiembros])
 
+<!-- Sección de Comentarios -->
+<section class="container my-5">
+    <h2 class="text-center mb-4">💬 Comentarios</h2>
+    @if(session('success'))
+        <div class="alert alert-success text-center">{{ session('success') }}</div>
+    @endif
+    <form action="{{ route('comentarios.store') }}" method="POST" class="mb-4">
+        @csrf
+        <div class="mb-3">
+            <input type="text" name="nombre" class="form-control" placeholder="Tu nombre" required>
+        </div>
+        <div class="mb-3">
+            <textarea name="comentario" class="form-control" rows="3" placeholder="Escribe tu comentario" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Comentar</button>
+    </form>
+    <div class="list-group">
+        @foreach(\App\Models\Comentario::latest()->take(10)->get() as $comentario)
+            <div class="list-group-item">
+                <strong>{{ $comentario->nombre }}</strong> <span class="text-muted small">{{ $comentario->created_at->diffForHumans() }}</span>
+                <p>{{ $comentario->comentario }}</p>
+            </div>
+        @endforeach
+    </div>
+</section>
 
  <!---------------------------------------------------FORMULARIO DE CONTACTENOS ACTUALIZADO-------------------------------------------------------------------------->
 
